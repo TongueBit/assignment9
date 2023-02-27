@@ -14,14 +14,7 @@ public class RecipeController {
 	
 	@Autowired
 	private RecipeService recipeService;
-	
-	/*
 
-	@GetMapping("/vegan-and-gluten-free")
-
-	
-	*/
-	
 	@GetMapping("/all-recipes")
 	public List<Recipe> getAllRecipes() {
 		return recipeService.getAll();
@@ -42,5 +35,8 @@ public class RecipeController {
 		return recipeService.getGlutenFree();
 	}
 	
-	
+	@GetMapping("/vegan-and-gluten-free")
+	public List<Recipe> getVeganAndGlutenFree() {
+		return recipeService.getVeganAndGlutenFree();
+	}
 }

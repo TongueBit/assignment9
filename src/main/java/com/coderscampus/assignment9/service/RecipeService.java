@@ -1,5 +1,6 @@
 package com.coderscampus.assignment9.service;
 
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,5 +41,14 @@ public class RecipeService  {
 		return recipeRepository.getRepository().stream()
 											   .filter(s -> s.getGlutenFree())
 											   .collect(Collectors.toList());	
+	}
+
+	public List<Recipe> getVeganAndGlutenFree() {
+		RecipeRepository recipeRepository = applicationContext.getBean(RecipeRepository.class);
+		return recipeRepository.getRepository().stream()
+				   .filter(s -> s.getGlutenFree())
+				   .filter(x -> x.getVegan())
+				   .collect(Collectors.toList());
+	
 	}
 }
